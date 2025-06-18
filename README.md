@@ -6,6 +6,11 @@ This is a Flutter Web application that demonstrates the use of `ColorScheme` wit
 - Interactively change color values via a settings page
 - Trigger UI overlays like Dialogs, SnackBars, and BottomSheets
 
+## 🌐 Live Demo
+
+Access the deployed app here:  
+👉 [https://flutter-color-scheme-sample.web.app](https://flutter-color-scheme-sample.web.app)
+
 ## 🔧 Features
 
 ### ✅ Home Page
@@ -65,6 +70,11 @@ lib/
 # flutter_color_scheme_sample（日本語）
 
 このアプリは Flutter Web 上で ColorScheme（Material 3）の色指定が各ウィジェットにどのように反映されるかを視覚的に確認・変更できるデモアプリです。
+
+## 🌐 デモサイト
+
+デプロイ済みのアプリはこちらからアクセスできます：  
+👉 [https://flutter-color-scheme-sample.web.app](https://flutter-color-scheme-sample.web.app)
 
 ## 🔧 主な機能
 
