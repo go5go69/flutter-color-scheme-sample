@@ -26,11 +26,11 @@ class SettingPage extends ConsumerWidget {
             current: colorScheme.onPrimary,
             onChanged: (c) => notifier.update(onPrimary: c),
           ),
-          _ColorSelector(
-            label: 'primaryContainer',
-            current: colorScheme.primaryContainer,
-            onChanged: (c) => notifier.update(primaryContainer: c),
-          ),
+          // _ColorSelector(
+          //   label: 'primaryContainer',
+          //   current: colorScheme.primaryContainer,
+          //   onChanged: (c) => notifier.update(primaryContainer: c),
+          // ),
           _ColorSelector(
             label: 'secondary',
             current: colorScheme.secondary,

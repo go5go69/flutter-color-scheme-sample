@@ -10,7 +10,7 @@ class ColorSchemeNotifier extends Notifier<ColorScheme> {
     primary: Colors.orange,
     onPrimary: Colors.white,
     // floatingActionButtonのColor
-    primaryContainer: Colors.teal,
+    // primaryContainer: Colors.teal,
     secondary: Colors.blue,
     onSecondary: Colors.white,
     error: Colors.redAccent,
