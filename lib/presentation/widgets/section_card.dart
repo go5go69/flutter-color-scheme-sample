@@ -15,8 +15,9 @@ class Section extends StatelessWidget {
         side: BorderSide(color: cs.outline),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Padding(
+      child: Container(
         padding: const EdgeInsets.all(16),
+        width: double.infinity,
         child: Column(
           children: [
             Text(

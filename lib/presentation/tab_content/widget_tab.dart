@@ -24,22 +24,28 @@ class _WidgetTabState extends State<WidgetTab> {
       child: Column(
         children: [
           Section(
-            title: 'ElevatedButton\n→ primary / onPrimary',
+            title: 'ElevatedButton\n→ surface / primary',
             child: ElevatedButton(
               onPressed: () {},
               child: const Text('ElevatedButton'),
             ),
           ),
           Section(
-            title: 'OutlinedButton\n→ outline',
+            title: 'FilledButton\n→ primary / onPrimary',
+            child: FilledButton(
+              onPressed: () {},
+              child: const Text('ElevatedButton'),
+            ),
+          ),
+          Section(
+            title: 'OutlinedButton\n→ outline / primary',
             child: OutlinedButton(
               onPressed: () {},
               child: const Text('OutlinedButton'),
             ),
           ),
           Section(
-            title:
-                'TextButton（フォアグラウンドを secondary に上書き）\n→ secondary / onSecondary',
+            title: 'TextButton\n→ primary',
             child: TextButton(
               onPressed: () {},
               child: const Text('TextButton'),
