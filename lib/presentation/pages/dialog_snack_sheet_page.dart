@@ -8,7 +8,21 @@ class DialogSnackSheetPage extends StatefulWidget {
 }
 
 class _DialogSnackSheetPageState extends State<DialogSnackSheetPage> {
-  void _showSnackBar() {
+  void _showDefaultSnackBar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'SnackBar (default)',
+        ),
+        action: SnackBarAction(
+          label: 'DISMISS',
+          onPressed: () {},
+        ),
+      ),
+    );
+  }
+
+  void _showErrorSnackBar() {
     final cs = Theme.of(context).colorScheme;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -27,19 +41,18 @@ class _DialogSnackSheetPageState extends State<DialogSnackSheetPage> {
   }
 
   void _showBottomSheet() {
-    final cs = Theme.of(context).colorScheme;
     showModalBottomSheet(
       context: context,
       showDragHandle: true,
       builder: (context) => Container(
-        color: cs.surface,
         padding: const EdgeInsets.all(16),
+        width: double.infinity,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('BottomSheet', style: TextStyle(color: cs.onSurface)),
+            Text('BottomSheet'),
             const SizedBox(height: 12),
-            ElevatedButton(
+            OutlinedButton(
               onPressed: () => Navigator.pop(context),
               child: const Text('閉じる'),
             ),
@@ -50,13 +63,11 @@ class _DialogSnackSheetPageState extends State<DialogSnackSheetPage> {
   }
 
   void _showDialog() {
-    final cs = Theme.of(context).colorScheme;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: cs.surface,
-        title: Text('Dialog Title', style: TextStyle(color: cs.onSurface)),
-        content: Text('これはダイアログです。', style: TextStyle(color: cs.onSurface)),
+        title: Text('AlertDialog'),
+        content: Text('これはAlertDialogです。'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -73,24 +84,37 @@ class _DialogSnackSheetPageState extends State<DialogSnackSheetPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Wrap(
-        spacing: 16,
-        runSpacing: 16,
-        children: [
-          FilledButton(
-            onPressed: _showSnackBar,
-            child: const Text('Show SnackBar'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Dialog & SnackBar'),
+      ),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            children: [
+              FilledButton(
+                onPressed: _showDefaultSnackBar,
+                child: const Text('Show DefaultSnackBar'),
+              ),
+              SizedBox(height: 16),
+              FilledButton(
+                onPressed: _showErrorSnackBar,
+                child: const Text('Show ErrorSnackBar'),
+              ),
+              SizedBox(height: 16),
+              FilledButton(
+                onPressed: _showBottomSheet,
+                child: const Text('Show BottomSheet'),
+              ),
+              SizedBox(height: 16),
+              FilledButton(
+                onPressed: _showDialog,
+                child: const Text('Show AlertDialog'),
+              ),
+            ],
           ),
-          FilledButton(
-            onPressed: _showBottomSheet,
-            child: const Text('Show BottomSheet'),
-          ),
-          FilledButton(
-            onPressed: _showDialog,
-            child: const Text('Show Dialog'),
-          ),
-        ],
+        ),
       ),
     );
   }
