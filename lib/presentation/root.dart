@@ -21,7 +21,12 @@ class _RootState extends State<Root> {
       SettingPage(),
     ];
     return Scaffold(
-      body: pages[_navIndex],
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 768),
+          child: pages[_navIndex],
+        ),
+      ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _navIndex,
         onDestinationSelected: (i) => setState(() => _navIndex = i),
