@@ -64,7 +64,7 @@ lib/
 │   └── widgets/
 │       ├── color_scheme_swatch.dart
 │       ├── section_card.dart
-│       └── root.dart
+└── root.dart
 ```
 
 # flutter_color_scheme_sample（日本語）
@@ -127,5 +127,5 @@ lib/
 │   └── widgets/
 │       ├── color_scheme_swatch.dart
 │       ├── section_card.dart
-│       └── root.dart
+└── root.dart
 ```
