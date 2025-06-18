@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_color_scheme_sample/presentation/pages/dialog_snack_sheet_page.dart';
 import 'package:flutter_color_scheme_sample/presentation/pages/home_page.dart';
+import 'package:flutter_color_scheme_sample/presentation/pages/setting_page.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -17,6 +18,7 @@ class _RootState extends State<Root> {
     final pages = <Widget>[
       HomePage(),
       DialogSnackSheetPage(),
+      SettingPage(),
     ];
     return Scaffold(
       body: pages[_navIndex],
@@ -32,10 +34,10 @@ class _RootState extends State<Root> {
             icon: Icon(Icons.call_to_action_outlined),
             label: 'Overlay',
           ),
-          // NavigationDestination(
-          //   icon: Icon(Icons.settings),
-          //   label: 'Settings',
-          // ),
+          NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
         ],
       ),
     );
