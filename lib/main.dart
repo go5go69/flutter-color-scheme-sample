@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_color_scheme_sample/presentation/home_page.dart';
+import 'package:flutter_color_scheme_sample/presentation/root.dart';
 import 'package:flutter_color_scheme_sample/theme/app_color_scheme.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: AppColorScheme.light,
       ),
-      home: HomePage(),
+      home: Root(),
       debugShowCheckedModeBanner: false,
     );
   }
