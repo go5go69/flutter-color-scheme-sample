@@ -82,13 +82,40 @@ class _WidgetTabState extends State<WidgetTab> {
             child: const Divider(),
           ),
           Section(
-            title: 'TextField（エラー表示）\n→ error / onError / outline',
-            child: TextField(
-              controller: _tf,
-              decoration: const InputDecoration(
-                labelText: '入力してエラーにしてみてください',
-                errorText: 'エラー例',
-              ),
+            title: 'TextField（default）',
+            child: Column(
+              children: [
+                TextField(
+                  controller: _tf,
+                  decoration: const InputDecoration(
+                    labelText: 'default TextField',
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  controller: _tf,
+                  decoration: const InputDecoration(
+                    labelText: 'TextField with filled',
+                    filled: true,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  controller: _tf,
+                  decoration: const InputDecoration(
+                    labelText: 'TextField with outline',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  controller: _tf,
+                  decoration: const InputDecoration(
+                    labelText: 'TextField with error',
+                    errorText: 'This is an error',
+                  ),
+                ),
+              ],
             ),
           ),
           Section(
