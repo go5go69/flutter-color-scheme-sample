@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_color_scheme_sample/presentation/tab_content/code_tab.dart';
 import 'package:flutter_color_scheme_sample/theme/app_color_scheme.dart';
 
 void main() {
@@ -82,125 +83,130 @@ class _ColorSchemeViewerState extends State<ColorSchemeViewer> {
                 icon: Icon(Icons.settings), label: 'Settings'),
           ],
         ),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              _Section(
-                title: 'ElevatedButton\n→ primary / onPrimary',
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('ElevatedButton'),
-                ),
-              ),
-              _Section(
-                title: 'OutlinedButton\n→ outline',
-                child: OutlinedButton(
-                  onPressed: () {},
-                  child: const Text('OutlinedButton'),
-                ),
-              ),
-              _Section(
-                title:
-                    'TextButton（フォアグラウンドを secondary に上書き）\n→ secondary / onSecondary',
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text('TextButton'),
-                ),
-              ),
-              _Section(
-                title: 'Switch / Checkbox / Radio\n→ activeColor は primary',
-                child: Column(
-                  children: [
-                    Switch(
-                      value: _switch,
-                      onChanged: (v) => setState(() => _switch = v),
+        body: TabBarView(
+          children: [
+            SingleChildScrollView(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  _Section(
+                    title: 'ElevatedButton\n→ primary / onPrimary',
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('ElevatedButton'),
                     ),
-                    Checkbox(
-                      value: _check,
-                      onChanged: (v) => setState(() => _check = v ?? false),
+                  ),
+                  _Section(
+                    title: 'OutlinedButton\n→ outline',
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      child: const Text('OutlinedButton'),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        3,
-                        (i) => Radio<int>(
-                          value: i,
-                          groupValue: _radio,
-                          onChanged: (v) => setState(() => _radio = v ?? 0),
+                  ),
+                  _Section(
+                    title:
+                        'TextButton（フォアグラウンドを secondary に上書き）\n→ secondary / onSecondary',
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text('TextButton'),
+                    ),
+                  ),
+                  _Section(
+                    title: 'Switch / Checkbox / Radio\n→ activeColor は primary',
+                    child: Column(
+                      children: [
+                        Switch(
+                          value: _switch,
+                          onChanged: (v) => setState(() => _switch = v),
                         ),
+                        Checkbox(
+                          value: _check,
+                          onChanged: (v) => setState(() => _check = v ?? false),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(
+                            3,
+                            (i) => Radio<int>(
+                              value: i,
+                              groupValue: _radio,
+                              onChanged: (v) => setState(() => _radio = v ?? 0),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  _Section(
+                    title: 'Divider\n→ outlineVariant',
+                    child: const Divider(),
+                  ),
+                  _Section(
+                    title: 'TextField（エラー表示）\n→ error / onError / outline',
+                    child: TextField(
+                      controller: _tf,
+                      decoration: const InputDecoration(
+                        labelText: '入力してエラーにしてみてください',
+                        errorText: 'エラー例',
                       ),
                     ),
-                  ],
-                ),
-              ),
-              _Section(
-                title: 'Divider\n→ outlineVariant',
-                child: const Divider(),
-              ),
-              _Section(
-                title: 'TextField（エラー表示）\n→ error / onError / outline',
-                child: TextField(
-                  controller: _tf,
-                  decoration: const InputDecoration(
-                    labelText: '入力してエラーにしてみてください',
-                    errorText: 'エラー例',
                   ),
-                ),
-              ),
-              _Section(
-                title: 'Container with surface / onSurface',
-                child: Container(
-                  padding: const EdgeInsets.all(12),
-                  color: cs.surface,
-                  child: Text(
-                    'surface の背景\nonSurface のテキスト',
-                    style: TextStyle(color: cs.onSurface),
-                  ),
-                ),
-              ),
-              _Section(
-                title: 'Chip（selectedColor に secondary）',
-                child: ChoiceChip(
-                  label: const Text('ChoiceChip'),
-                  selected: true,
-                  onSelected: (_) {},
-                ),
-              ),
-              _Section(
-                title: 'Card & ListTile (surface / onSurface)',
-                child: Card(
-                  child: ListTile(
-                    leading: const Icon(Icons.person),
-                    title: const Text('ListTile inside Card'),
-                    subtitle: const Text('surface 背景 & onSurface 文字'),
-                  ),
-                ),
-              ),
-              _Section(
-                title: 'ProgressIndicator → primary',
-                child: Column(
-                  children: const [
-                    CircularProgressIndicator(),
-                    SizedBox(height: 12),
-                    LinearProgressIndicator(),
-                  ],
-                ),
-              ),
-              _Section(
-                title: 'Slider → activeColor は primary',
-                child: Column(
-                  children: [
-                    Slider(
-                      value: _slider,
-                      onChanged: (v) => setState(() => _slider = v),
+                  _Section(
+                    title: 'Container with surface / onSurface',
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      color: cs.surface,
+                      child: Text(
+                        'surface の背景\nonSurface のテキスト',
+                        style: TextStyle(color: cs.onSurface),
+                      ),
                     ),
-                    Text('値: ${(_slider * 100).round()}'),
-                  ],
-                ),
+                  ),
+                  _Section(
+                    title: 'Chip（selectedColor に secondary）',
+                    child: ChoiceChip(
+                      label: const Text('ChoiceChip'),
+                      selected: true,
+                      onSelected: (_) {},
+                    ),
+                  ),
+                  _Section(
+                    title: 'Card & ListTile (surface / onSurface)',
+                    child: Card(
+                      child: ListTile(
+                        leading: const Icon(Icons.person),
+                        title: const Text('ListTile inside Card'),
+                        subtitle: const Text('surface 背景 & onSurface 文字'),
+                      ),
+                    ),
+                  ),
+                  _Section(
+                    title: 'ProgressIndicator → primary',
+                    child: Column(
+                      children: const [
+                        CircularProgressIndicator(),
+                        SizedBox(height: 12),
+                        LinearProgressIndicator(),
+                      ],
+                    ),
+                  ),
+                  _Section(
+                    title: 'Slider → activeColor は primary',
+                    child: Column(
+                      children: [
+                        Slider(
+                          value: _slider,
+                          onChanged: (v) => setState(() => _slider = v),
+                        ),
+                        Text('値: ${(_slider * 100).round()}'),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            CodeTab(),
+          ],
         ),
       ),
     );
