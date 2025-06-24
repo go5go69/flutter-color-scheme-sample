@@ -106,7 +106,7 @@ fvm flutter pub get
 ## 💻 ローカルでの実行
 
 ```
-fvm flutter pub get
+fvm flutter run -d chrome
 ```
 
 ## 📁 ディレクトリ構成
